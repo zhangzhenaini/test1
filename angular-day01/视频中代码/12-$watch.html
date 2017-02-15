@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$watch - 用来监视数据模型的变化</title>
+</head>
+<!-- 2. 写上ng-app指令 -->
+<body ng-app="myApp" ng-controller="demoController">
+    <input type="text" ng-model="name">
+    <!-- 1.引入angular.js -->
+    <!-- <script src="node_modules/angular/angular.js"></script> -->
+    <script src="http://apps.bdimg.com/libs/angular.js/1.5.0-beta.0/angular.js"></script>
+    <script>
+        // 3.创建模块
+       var app = angular.module('myApp',[]);
+
+       // 4.创建控制器
+       app.controller('demoController',function($scope){
+           // 初始化数据模型
+           $scope.name='a';
+           //var a;
+           // 监视数据模型的变化
+           // 第一个参数,数据模型名的字符串形式
+           // 第二个参数，是一个回调函数：有两个参数，分别是变化后的值，和变化前的值
+           $scope.$watch('name',function(nowValue,oldValue){
+               // console.log(nowValue);
+               // console.log(oldValue);
+           })
+       })
+    </script>
+</body>
+</html>

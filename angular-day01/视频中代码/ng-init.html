@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js值+1</title>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myCtrl">
+        <span ng-init="a=1;"></span>
+        <p>{{a+1}}</p>
+        <span ng-init="b='1';"></span>
+        <p>{{b+1}}</p>
+        <span ng-init="c=[1,2,3];"></span>
+        <p>{{c[2]}}</p>
+        <span ng-init="d={name:'ericzheng'};"></span>
+        <p>{{d.name}}</p>
+    </div>
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script>
+        var myApp = angular.module("myApp",[]);
+        myApp.controller("myCtrl",['$scope',function($scope){
+
+        }]);
+    </script>
+</body>
+</html>

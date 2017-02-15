@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册案例</title>
+</head>
+<body ng-app="myApp" border="1" ng-controller="demoController">
+    <!-- 2.加上ng-app指令 -->
+    <!-- view 开始 -->
+    <table>
+        <tr>
+            <td>用户名:</td><td><input type="text" ng-model="username"></td>
+        </tr>
+        <tr>
+            <td>密码:</td><td><input type="text" ng-model="password"></td>
+        </tr>
+        <tr><td>提示信息：</td><td>{{msg}}</td></tr>
+        <tr>
+            <td>注册按钮:</td><td><input type="button" ng-click="register()" value="注册"></td>
+        </tr>
+    </table>
+    <p>
+        {{userArr}}
+    </p>
+    <!-- 1.引入 anglar.js -->
+    <script src="node_modules/angular/angular.js"></script>
+    <script>
+       var myApp = angular.module('myApp',[]);
+       myApp.controller('demoController',function($scope){
+           $scope.username = '';
+           $scope.password = '';
+           $scope.userArr = [];
+           $scope.register = function(){
+               $scope.userArr.push({userName:$scope.username,userPassword:$scope.password});
+           };
+       });
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+</head>
+<!-- 2.加上ng-app指令，让angular来管理指令所在的元素及其子元素中的html代码 -->
+<body ng-app="myApp" ng-controller="demoController">
+    <input type="text" ng-model="user.name">
+    <p>hello: {{user.name}}</p>
+    <input type="button" value="改变$scope.user.name的值" ng-click="changUser()">
+
+    <input type="button" value="输出$scope.user.name的值" ng-click="outputUser()">
+    <!-- <p>{{{name:1,age:2}}}</p> -->
+    <!-- 1.引入angular的js文件 -->
+    <script src="node_modules/angular/angular.js"></script>
+    <script>
+        // 3.创建模块
+        var app = angular.module('myApp',[]);
+
+        // 4.创建控制器
+        app.controller('demoController',function($scope){
+            // 初始化数据模型
+            $scope.user={name:'小明'};
+
+            // 初始化行为模型
+            $scope.changUser=function(){
+                $scope.user.name="小红";
+            }
+            $scope.outputUser=function(){
+                console.log($scope.user.name);
+            }
+        })
+    </script>
+</body>
+</html>

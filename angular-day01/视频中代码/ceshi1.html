@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+</head>
+<!-- 2.加上ng-app指令，让angular来管理指令所在的元素及其子元素中的html代码 -->
+<body ng-app ng-init="a=1;">
+    <input type="text">
+    <p>{{user.name}}</p>
+    {{ {name:'itcast'} }}
+    {{ true || false }}
+    {{ 2>1 }}
+    {{null}}
+    <script src="node_modules/angular/angular.js"></script>
+</body>
+</html>

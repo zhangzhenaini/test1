@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加法计算器 - 用angular.js来实现计算器的示例代码，大家可以思考一下如果用原生的或jQuery来实现计算器案例应该怎么写代码</title>
+</head>
+<!-- 2.加上ng-app指令 ，相当于一个入口，告诉angular来管理这里的代码  限定范围-->
+<body ng-app>
+     <input type="text"  ng-model="valA">+
+     <input type="text"  ng-model="valB">
+     <input type="button" value="=" ng-click="result= (valA-0)+(valB-0)">
+     <input type="text"  ng-model="result">
+     <p>{{(valA-0)+(valB-0)}}</p>
+
+     <!-- 1.引入angular的js文件 -->
+     <script src="node_modules/angular/angular.js"></script>
+    </body>
+</html>

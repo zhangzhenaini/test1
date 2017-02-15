@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册案例</title>
+</head>
+<body>
+    <!-- 2.加上ng-app指令 -->
+    <!-- view 开始 -->
+    <table ng-app="myApp" border="1" ng-controller="demoController">
+        <tr>
+            <td>用户名:</td><td><input type="text" ng-model="username"></td>
+        </tr>
+        <tr>
+            <td>密码:</td><td><input type="text" ng-model="password"></td>
+        </tr>
+        <tr>
+            <td>确认密码:</td><td><input type="text" ng-model="confirm"></td>
+        </tr>
+        <tr>
+            <td>是否同意:</td><td><input type="checkbox" ng-model="isAgree"></td>
+        </tr>
+        <tr><td></td><td>{{msg}}</td></tr>
+        <tr>
+            <td>注册按钮:</td><td><input type="button" ng-click="register()" value="注册"></td>
+        </tr>
+    </table>
+    <!-- view 结束 -->
+    <!-- 1.引入 anglar.js -->
+    <script src="node_modules/angular/angular.js"></script>
+    <script>
+        // 3.创建模块
+        var app = angular.module('myApp',[]);
+
+
+        // controller 开始
+        // 4.创建控制器
+        app.controller('demoController',function($scope){
+            // 初始化数据模型
+            $scope.username='';
+            $scope.password='';
+            $scope.confirm='';
+            $scope.isAgree=false;
+            $scope.msg='';
+
+            // 初始化行为模型
+            $scope.register=function(){
+                // 进行数据校验
+                if($scope.username.length>6){
+                    $scope.msg='用户名太长';
+                    return;
+                }
+
+                if($scope.password!=$scope.confirm){
+                    $scope.msg='确认密码和密码不相等';
+                    return;
+                }
+                if(!$scope.isAgree){
+                    $scope.msg='请同意用户协议';
+                    return;
+                }
+
+                var user = new User($scope.username,$scope.password);
+                var result = user.save();
+                if(result){
+                    $scope.msg='注册成功';
+
+                }else{
+                    $scope.msg='用户名已存在';
+                }
+            }
+        });
+        // controller 结束
+
+
+
+        // model  开始 注意，这里面用到了面向对象的构造器+原型的方式来实现对象，这块和咱们的angular.js学习是没多大关系的，如果不理解的同学可以复习下之前的知识，不用纠结这块
+        //简化版案例：先不考虑localStorage,面向对象这些东西，直接考虑对数组的增删改查看自己能不能实现这个案例
+        function User(username,password){
+            this.username=username;
+            this.password=password;
+        }
+
+
+        User.prototype.save=function(){
+            //localStorage
+            var data = localStorage.getItem('user')||'[]';
+            ///[{username:'a'},{username:'b'}]
+            var users = JSON.parse(data);
+
+            // 判断用户名是否存在
+            for (var i = 0; i < users.length; i++) {
+                var item =users[i];
+                if(item.username==this.username){
+                    return false;
+                }
+            }
+            users.push({username:this.username,password:this.password});
+
+            localStorage.setItem('user',JSON.stringify(users));
+            return true;
+
+        }
+        // getUser
+        // model 结束
+    </script>
+</body>
+</html>

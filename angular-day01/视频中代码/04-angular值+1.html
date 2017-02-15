@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angular值+1 - 通过本案例可以考虑如果用angular.js怎么实现一个值加1的案例</title>
+</head>
+
+<!-- 2.规定，需要在angular管理的代码父元素上加上ng-app属性
+  ng-app: 在angular中,把ng-开头的属性叫作指令:
+  告诉angular从这里开始管理页面的代码-->
+<!--
+ 指令 ng-开头,比如
+ ng-app 
+ ng-model
+ ng-click   
+-->
+
+<body ng-app>
+
+    <!-- 4.拿到文本框的值 -->
+    <input ng-model="val" type="text" id="num">
+
+    <!-- 3.给按钮注册点击事件 -->
+    <input ng-click="val = (val -0) + 1" type="button" id="add" value="值+1">
+    <!-- 1.引入angular的js文件 -->
+    <script src="node_modules/angular/angular.js"></script>
+    <script>
+
+
+        // 1.获取按钮对象，并注册点击事件
+        // var add = document.getElementById('add');
+        // add.onclick=function(){
+        //     // 2.拿到文本框对象，并使其值+1
+        //     var num = document.getElementById('num');
+        //     // 值+1
+        //     // 注意:
+        //     num.value = (num.value - 0) +1
+        // }
+    </script>
+</body>
+</html>

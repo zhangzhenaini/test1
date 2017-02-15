@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>最简单的理解MVC代码</title>
+</head>
+<body>
+    <!--视图开始-->
+    <div id="myApp">
+        //思考：把下面二行代码调换位置，会不会对模型、控制器有影响？？？？
+        <h3>{{name}}</h3>
+        <p>{{sex}}</p>
+    </div>
+    <!--视图结束-->
+    <script>
+        window.onload = function(){
+            //数据模型开始
+            var model = {};
+            model.name = "wefewfewwfew";
+            model.sex = "wfe";
+            //数据模型结束
+
+            //控制器开始
+            function controller_init(){
+                //把所有的#myApp里面的元素选出来
+                var eleList = document.querySelectorAll("#myApp *");
+                var reg = /^{{(.*)}}$/;
+                for(var i=0;i<eleList.length;i++){
+                    var ret = reg.exec(eleList[i].innerHTML);
+                    if(ret != null && ret.length>=2){
+                        eleList[i].innerHTML =  model[ret[1]];       
+                    }
+                }
+            }
+            controller_init();//控制器的初始化
+            //控制器结束
+        };
+    </script>
+</body>
+</html>

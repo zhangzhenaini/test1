@@ -1,0 +1,75 @@
+{
+  "_args": [
+    [
+      "angular-day01",
+      "C:\\Users\\Administrator\\Desktop\\test"
+    ]
+  ],
+  "_from": "angular-day01@*",
+  "_id": "angular-day01@1.0.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/angular-day01",
+  "_nodeVersion": "7.4.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/angular-day01-1.0.2.tgz_1485696637939_0.26094030030071735"
+  },
+  "_npmUser": {
+    "email": "js-class@qq.com",
+    "name": "ericzheng"
+  },
+  "_npmVersion": "4.0.5",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "angular-day01",
+    "raw": "angular-day01",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "*",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular-day01/-/angular-day01-1.0.2.tgz",
+  "_shasum": "adc91dbe751644b3afcecdd459540167f1c6a39c",
+  "_shrinkwrap": null,
+  "_spec": "angular-day01",
+  "_where": "C:\\Users\\Administrator\\Desktop\\test",
+  "author": {
+    "name": "ericzheng"
+  },
+  "bugs": {
+    "url": "https://github.com/black-pony/angular-01/issues"
+  },
+  "dependencies": {},
+  "description": "angular第一天课件",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "adc91dbe751644b3afcecdd459540167f1c6a39c",
+    "tarball": "https://registry.npmjs.org/angular-day01/-/angular-day01-1.0.2.tgz"
+  },
+  "gitHead": "87de8472555d13203e2d32aa058a46da74358ba2",
+  "homepage": "https://github.com/black-pony/angular-01#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "ericzheng",
+      "email": "js-class@qq.com"
+    }
+  ],
+  "name": "angular-day01",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/black-pony/angular-01.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.2"
+}

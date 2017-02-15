@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>spa  - 通过本案例掌握不用angular.js，原生的js怎么实现一个spa</title>
+    <style>
+        #box{
+            height: 400px;
+            background: #ff0;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#find">发现音乐</a></li>
+        <li><a href="#mine">我的音乐</a></li>
+        <li><a href="#friend">朋友</a></li>
+    </ul>
+    <div id="box">
+        
+    </div>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        // 必须要在服务器环境下面运行当前代码 ，否则会有跨域问题
+        // 根据页面url中锚点值的不同，动态的显示不同的内容     
+        // 1.监听锚点值变化的事件
+        window.addEventListener('hashchange',function(){
+            // 2. 获取锚点值
+            var hash = location.hash;
+
+            // 3.根据锚点值的不同，来进行相应的操作
+            switch(hash){
+                case '#find':
+                 $.get('./find.json',function(data){
+                     document.getElementById('box').innerHTML=data.text;
+                 },'json')
+                break;
+                case '#mine':
+                    $.get('./mine.json',function(data){
+                        document.getElementById('box').innerHTML=data.text;
+                    },'json');
+                break;
+                case '#friend':
+                    $.get('./friend.json',function(data){
+                        document.getElementById('box').innerHTML=data.text;
+                    },'json')
+                break;
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js值+1 - 通过本案例可以考虑如果用原生的怎么实现一个值加1的案例</title>
+</head>
+<body>
+    <input type="text" id="num">
+    <input type="button" id="add" value="值+1">
+    <script>
+        // 1.获取按钮对象，并注册点击事件
+        var add = document.getElementById('add');
+        add.onclick=function(){
+            // 2.拿到文本框对象，并使其值+1
+            var num = document.getElementById('num');
+            // 值+1
+            num.value = (num.value - 0) +1// -0的作用是用来隐式类型转换成数字类型数据
+        }
+    </script>
+</body>
+</html>

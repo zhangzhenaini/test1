@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world - 通过本案例对用angular.js写程序有一个感性的认识，建议大家多抄写几遍，达到类似html的基本骨架结构一样熟悉</title>
+</head>
+<!-- 2.加上ng-app指令，让angular来管理指令所在的元素及其子元素中的html代码 -->
+<body ng-app ng-init="user.name='小明'">
+    <input type="text" ng-model="user.name">
+    <p>hello: {{user.name}}</p>
+
+    <p>{{'hello:' + user.name}}</p>
+    <p>{{1+2}}</p>
+    <p>{{[1,2,3,4,5]}}</p>
+    <!-- <p>{{{name:1,age:2}}}</p> --><!--注意：可以放置对象字面量类型数据，只要让对象字面量的花括号和外面的双花括号之间有空格就行了-->
+    <!-- 1.引入angular的js文件 -->
+    <script src="node_modules/angular/angular.js"></script>
+</body>
+</html>
